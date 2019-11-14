@@ -10,6 +10,6 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.HomeFragment"
-        android:label="Inicio"
+        android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 </navigation>
