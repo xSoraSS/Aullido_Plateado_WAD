@@ -1,13 +1,19 @@
-package com.example.aullidoplateadowad.AullidoPlateado.Game;
+package com.example.aullidoplateadowad;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.aullidoplateadowad.AullidoPlateado.Game.GameFragment;
 import com.example.aullidoplateadowad.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,13 +27,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
-    Button startHist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.homeFragment)
+                R.id.homeFragment, R.id.gameFragment, R.id.configFragment,
+                R.id.inventoryFragment, R.id.mapFragment, R.id.statsFragment2)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -70,4 +76,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }
