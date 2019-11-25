@@ -12,4 +12,29 @@
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.aullidoplateadowad.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.aullidoplateadowad.mapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/statsFragment2"
+        android:name="com.example.aullidoplateadowad.statsFragment"
+        android:label="fragment_stats2"
+        tools:layout="@layout/fragment_stats2" />
+    <fragment
+        android:id="@+id/inventoryFragment"
+        android:name="com.example.aullidoplateadowad.inventoryFragment"
+        android:label="fragment_inventory"
+        tools:layout="@layout/fragment_inventory" />
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.example.aullidoplateadowad.configFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" />
 </navigation>
