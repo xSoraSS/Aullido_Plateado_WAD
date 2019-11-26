@@ -11,7 +11,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.GameFragment"
