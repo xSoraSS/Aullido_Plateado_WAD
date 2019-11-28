@@ -3,10 +3,9 @@ package com.example.aullidoplateadowad.AullidoPlateado.DB;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.RoomDatabase;
 
 @Entity(tableName = "Personaje")
-public abstract class Character extends RoomDatabase {
+public class Character {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -18,6 +17,13 @@ public abstract class Character extends RoomDatabase {
     private int levelExperience;
     @ColumnInfo(name = "Herido")
     private boolean injured;
+
+    public Character(String characterName, int characterLevel, int levelExperience, boolean injured) {
+        this.characterName = characterName;
+        this.characterLevel = characterLevel;
+        this.levelExperience = levelExperience;
+        this.injured = injured;
+    }
 
     public int getId() {
         return id;
