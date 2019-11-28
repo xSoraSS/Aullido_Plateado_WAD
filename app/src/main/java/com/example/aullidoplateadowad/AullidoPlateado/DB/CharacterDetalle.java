@@ -2,7 +2,7 @@ package com.example.aullidoplateadowad.AullidoPlateado.DB;
 
 import androidx.room.DatabaseView;
 
-@DatabaseView("SELECT Character.characterName")
+@DatabaseView("SELECT character.characterName, character.characterLevel, character.levelExperience, character.injured")
     public class CharacterDetalle {
 
     public int id;
