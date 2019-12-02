@@ -36,7 +36,7 @@ public abstract class CharacterDatabase extends RoomDatabase {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                characterDao.insertarPersonaje(new Character("SORA", 0, 0, false));
+                characterDao.insertarPersonaje(new Character("SORA", 1, 0001, false));
             }
         });
     }

@@ -4,18 +4,18 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Personaje")
+@Entity(tableName = "Character")
 public class Character {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "Nombre")
+    @ColumnInfo(name = "nombre")
     private String characterName;
-    @ColumnInfo(name = "Nivel de Personaje")
+    @ColumnInfo(name = "nivel")
     private int characterLevel;
-    @ColumnInfo(name = "Experiencia x/n")
+    @ColumnInfo(name = "experiencia")
     private int levelExperience;
-    @ColumnInfo(name = "Herido")
+    @ColumnInfo(name = "herido")
     private boolean injured;
 
     public Character(String characterName, int characterLevel, int levelExperience, boolean injured) {

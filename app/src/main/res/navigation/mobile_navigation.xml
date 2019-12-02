@@ -27,10 +27,10 @@
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
     <fragment
-        android:id="@+id/statsFragment2"
+        android:id="@+id/statsFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.statsFragment"
-        android:label="fragment_stats2"
-        tools:layout="@layout/fragment_stats2" />
+        android:label="fragment_stats"
+        tools:layout="@layout/fragment_stats" />
     <fragment
         android:id="@+id/inventoryFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.inventoryFragment"

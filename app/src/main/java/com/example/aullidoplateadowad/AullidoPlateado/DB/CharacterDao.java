@@ -18,4 +18,5 @@ public abstract class CharacterDao {
 
     @Query("SELECT * FROM CharacterDetalle")
     public abstract LiveData<List<CharacterDetalle>> getCharacterDetalle();
+
 }
