@@ -45,13 +45,4 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
-//
-//    private void swapFragment(){
-//        GameFragment gameFragment = new GameFragment();
-//        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.replace(R.id.homeFragment, gameFragment);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-//    }
-
 }

@@ -18,7 +18,7 @@ public abstract class CharacterDatabase extends RoomDatabase {
 
     public static CharacterDatabase getInstance(final Context context){
         if(INSTANCE == null){
-            INSTANCE = Room.databaseBuilder(context, CharacterDatabase.class, "tareas-db")
+            INSTANCE = Room.databaseBuilder(context, CharacterDatabase.class, "characters-db")
                     .fallbackToDestructiveMigration()
                     .addCallback(new Callback() {
                         @Override
@@ -36,7 +36,7 @@ public abstract class CharacterDatabase extends RoomDatabase {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                characterDao.insertarPersonaje(new Character("SORA", 1, 0001, false));
+                characterDao.insertarPersonaje(new Character("SORA", 0, 0, false));
             }
         });
     }

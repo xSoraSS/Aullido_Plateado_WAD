@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,6 +18,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -30,6 +33,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    //
+    //**************************************************
+    //*******                                    *******
+    //*******        OVERLAP DE FRAGMENTS        *******
+    //*******                                    *******
+    //**************************************************
+    //
+
     private AppBarConfiguration mAppBarConfiguration;
 
     CharacterViewModel characterViewModel;
@@ -40,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel.class);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_character);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(charactersAdapter = new CharactersAdapter());
+
 
         characterViewModel.getCharacterDetalle().observe(this, new Observer<List<CharacterDetalle>>() {
             @Override
@@ -88,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     //*******************************************
     //
     //
-    // ERROR DB CIERRA APP REVISAR CHARACTERVIEWGOLDER, ADAPTERS Y VIEWMODEL
+    // COLAPSO DE FRAGMENTS
 
     class CharacterViewHolder extends RecyclerView.ViewHolder {
         TextView nombre;
