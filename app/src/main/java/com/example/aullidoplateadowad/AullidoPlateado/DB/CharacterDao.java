@@ -11,12 +11,14 @@ import java.util.List;
 public abstract class CharacterDao {
 
     @Insert
-    public abstract void insertarPersonaje(Character character);
+    public abstract void insertarCharacter(Character character);
 
     @Query("DELETE FROM Character WHERE id=:id")
     public abstract void deleteCharacter(int id);
 
-    @Query("SELECT * FROM CharacterDetalle")
-    public abstract LiveData<List<CharacterDetalle>> getCharacterDetalle();
+    @Query("SELECT * FROM Character")
+    public abstract LiveData<List<Character>> getCharacters();
 
+    @Query("SELECT * FROM Character")
+    public abstract List<Character> getCharactersList();
 }

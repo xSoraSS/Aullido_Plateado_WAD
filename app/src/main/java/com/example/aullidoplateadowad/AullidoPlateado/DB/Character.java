@@ -64,4 +64,15 @@ public class Character {
     public void setInjured(boolean injured) {
         this.injured = injured;
     }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id=" + id +
+                ", characterName='" + characterName + '\'' +
+                ", characterLevel=" + characterLevel +
+                ", levelExperience=" + levelExperience +
+                ", injured=" + injured +
+                '}';
+    }
 }

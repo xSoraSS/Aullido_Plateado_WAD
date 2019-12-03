@@ -2,50 +2,32 @@ package com.example.aullidoplateadowad;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.aullidoplateadowad.AullidoPlateado.DB.CharacterDetalle;
-import com.example.aullidoplateadowad.AullidoPlateado.DB.CharacterViewModel;
+import com.example.aullidoplateadowad.AullidoPlateado.CharacterViewModel;
+import com.example.aullidoplateadowad.AullidoPlateado.DB.Character;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    //
-    //**************************************************
-    //*******                                    *******
-    //*******        OVERLAP DE FRAGMENTS        *******
-    //*******                                    *******
-    //**************************************************
-    //
-
     private AppBarConfiguration mAppBarConfiguration;
 
     CharacterViewModel characterViewModel;
-    CharactersAdapter charactersAdapter;
-    List<CharacterDetalle> characterDetalleList;
+    List<Character> characterList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,19 +52,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_character);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(charactersAdapter = new CharactersAdapter());
 
+        characterViewModel.mostrarBD();
 
-        characterViewModel.getCharacterDetalle().observe(this, new Observer<List<CharacterDetalle>>() {
-            @Override
-            public void onChanged(List<CharacterDetalle> queryResult) {
-                characterDetalleList = queryResult;
-                charactersAdapter.notifyDataSetChanged();
-            }
-        });
+//        characterViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
+//            @Override
+//            public void onChanged(List<Character> characters) {
+//                characterList = characters;
+//            }
+//        };
     }
 
     @Override
@@ -97,44 +75,5 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-    //
-    //*******************************************
-    //*******                             *******
-    //*******        BASE DE DATOS        *******
-    //*******                             *******
-    //*******************************************
-    //
-    //
-    // COLAPSO DE FRAGMENTS
-
-    class CharacterViewHolder extends RecyclerView.ViewHolder {
-        TextView nombre;
-
-        public CharacterViewHolder(@NonNull View itemView) {
-            super(itemView);
-            nombre = itemView.findViewById(R.id.characterName);
-        }
-    }
-
-    class CharactersAdapter extends RecyclerView.Adapter<CharacterViewHolder>{
-        @NonNull
-        @Override
-        public CharacterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new CharacterViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_game, parent, false));
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
-            final CharacterDetalle characterDetalle = characterDetalleList.get(position);
-
-            holder.nombre.setText(characterDetalle.nombre);
-        }
-
-        @Override
-        public int getItemCount() {
-            return characterDetalleList != null ? characterDetalleList.size() : 0;
-        }
     }
 }

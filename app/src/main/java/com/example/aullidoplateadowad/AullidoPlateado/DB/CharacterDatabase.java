@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Character.class}, views = {CharacterDetalle.class}, version = 1)
+@Database(entities = {Character.class}, version = 2, exportSchema = false)
 public abstract class CharacterDatabase extends RoomDatabase {
 
     private static CharacterDatabase INSTANCE;
@@ -36,7 +36,7 @@ public abstract class CharacterDatabase extends RoomDatabase {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                characterDao.insertarPersonaje(new Character("SORA", 0, 0, false));
+                characterDao.insertarCharacter(new Character("SORA", 0, 0, false));
             }
         });
     }
