@@ -19,15 +19,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
     CharacterViewModel characterViewModel;
-    List<Character> characterList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +48,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
-        characterViewModel.mostrarBD();
-
-//        characterViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
-//            @Override
-//            public void onChanged(List<Character> characters) {
-//                characterList = characters;
-//            }
-//        };
     }
 
     @Override

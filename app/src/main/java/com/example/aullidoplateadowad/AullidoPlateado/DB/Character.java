@@ -67,12 +67,9 @@ public class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
-                "id=" + id +
-                ", characterName='" + characterName + '\'' +
-                ", characterLevel=" + characterLevel +
-                ", levelExperience=" + levelExperience +
-                ", injured=" + injured +
-                '}';
+        return  "Nombre: " + characterName +
+                "\nNivel: " + characterLevel +
+                "\nExperiencia: " + levelExperience +
+                "\nHerido: " + injured;
     }
 }

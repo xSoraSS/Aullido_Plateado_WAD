@@ -16,12 +16,16 @@ import java.util.List;
 
 public class CharacterViewModel extends AndroidViewModel {
 
+    Character character;
     CharacterDao characterDao;
 
     public CharacterViewModel(@NonNull Application application) {
         super(application);
 
         characterDao = CharacterDatabase.getInstance(application).characterDao();
+
+        character = new Character("Sora", 0, 0, false);
+        insertarCharacter(character);
     }
 
     public LiveData<List<Character>> getCharacter(){
