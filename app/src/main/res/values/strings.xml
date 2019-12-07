@@ -8,6 +8,12 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Aullido Plateado</string>
+    <string name="map">Mapa</string>
+    <string name="inicio">Es una mañana tranquila, como cualquier otra, en Catherria, tu tierra natal.\n
+        \nLa brisa golpea levemente las hojas de los arboles, los pajaros cantan al son del silbido de los campesinos que labran sus pequeños huertos a las afueras de Bharbao, la pequeña capital portuaria de Catherria.\n
+        \nCaballos galopando, guardias clavando sus lanzas en el  suelo guardando la gran muralla, mercaderes haciendo negocios con los lugareños, niños y niñas jugando y perros ladrando, son algunos de los sonidos que entran por la ventana entreabierta de tu cuarto.\n
+        \nDe repente, alguien abre la puerta de tu cuarto, es tu hermana pequeña, Shira.
+    </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

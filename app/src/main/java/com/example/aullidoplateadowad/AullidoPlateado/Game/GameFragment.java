@@ -40,18 +40,19 @@ public class GameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel .class);
+//        characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel .class);
         View view = inflater.inflate(R.layout.fragment_game, container,false);
-        characterName = view.findViewById(R.id.characterName);
-
-        characterViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
-            @Override
-            public void onChanged(List<Character> queryResult) {
-                charactersList = queryResult;
-                characterName.setText(charactersList.get(0).toString());
-            }
-        });
+//        characterName = view.findViewById(R.id.characterName);
+//
+//        characterViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
+//            @Override
+//            public void onChanged(List<Character> queryResult) {
+//                charactersList = queryResult;
+//                characterName.setText(charactersList.get(0).toString());
+//            }
+//        });
 
         return view;
     }
+
 }

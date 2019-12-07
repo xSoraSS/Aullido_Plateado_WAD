@@ -8,6 +8,11 @@
             android:id="@+id/homeFragment"
             android:icon="@drawable/home"
             android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/mapFragment"
+            android:icon="@drawable/map"
+            android:title="@string/map" />
     </group>
 
 </menu>

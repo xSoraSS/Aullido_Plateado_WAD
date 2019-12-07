@@ -5,28 +5,59 @@
     android:layout_height="match_parent"
     tools:context=".AullidoPlateado.Game.GameFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="-200dp">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Capitulo 1"
-        android:textSize="60dp"
-        android:textColor="@android:color/black"
-        android:fontFamily="sans-serif"/>
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/characterName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:fontFamily="sans-serif"
-        android:layout_gravity="left"/>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/inicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="El Encargo"
+                android:textSize="60dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@android:color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/inicio"
+                android:layout_marginTop="10dp"
+                android:textSize="25dp"
+                android:layout_marginHorizontal="30dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@android:color/black"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginVertical="50dp">
+
+                <Button
+                    android:id="@+id/saludar"
+                    android:layout_width="194dp"
+                    android:layout_height="50dp"
+                    android:text="Saludar a Shira"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/scroll"/>
+                <Button
+                    android:id="@+id/noSaludar"
+                    android:layout_width="173dp"
+                    android:layout_height="50dp"
+                    android:text="No decir nada"
+                    android:textSize="20dp"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/scroll"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
