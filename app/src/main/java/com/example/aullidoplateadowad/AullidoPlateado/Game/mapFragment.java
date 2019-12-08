@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ZoomControls;
 
 import com.example.aullidoplateadowad.R;
 
@@ -17,7 +19,6 @@ import com.example.aullidoplateadowad.R;
  * A simple {@link Fragment} subclass.
  */
 public class mapFragment extends Fragment {
-
 
     public mapFragment() {
         // Required empty public constructor

@@ -1,6 +1,7 @@
 package com.example.aullidoplateadowad.AullidoPlateado.Game;
 
 
+import android.content.pm.ActivityInfo;
 import android.media.MediaCodec;
 import android.os.Bundle;
 
@@ -35,6 +36,9 @@ public class HomeFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
         startHistory = view.findViewById(R.id.startHist);
+
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         startHistory.setOnClickListener(new View.OnClickListener() {
             @Override

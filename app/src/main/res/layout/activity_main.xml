@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    android:background="@drawable/scroll">
+    tools:openDrawer="start">
 
     <include
         layout="@layout/app_bar_main"
@@ -22,10 +21,5 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_character"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

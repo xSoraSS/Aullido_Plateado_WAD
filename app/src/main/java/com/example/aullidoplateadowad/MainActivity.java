@@ -1,5 +1,6 @@
 package com.example.aullidoplateadowad;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     CharacterViewModel characterViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
