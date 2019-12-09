@@ -71,8 +71,6 @@ public class Character {
         if(injured = false) {herido = "Herido";}
         else{herido = "Sin heridas aparentes";}
         return  "Nombre: " + characterName +
-                "\nNivel: " + characterLevel +
-                "\nExperiencia: " + levelExperience +
-                "\nHerido: " + herido;
+                "\nNivel: " + characterLevel;
     }
 }

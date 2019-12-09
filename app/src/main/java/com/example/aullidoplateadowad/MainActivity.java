@@ -1,10 +1,9 @@
 package com.example.aullidoplateadowad;
 
-import android.content.pm.ActivityInfo;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,9 +19,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     CharacterViewModel characterViewModel;
-
+    List<Character> charactersList;
+    TextView characterName;
+    ImageView characterImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,25 @@ public class MainActivity extends AppCompatActivity {
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        NavigationView infoMenuLateral = findViewById(R.id.nav_view);
+
+        View header = LayoutInflater.from(this).inflate(R.layout.nav_header_main, null);
+        infoMenuLateral.addHeaderView(header);
+//        characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel .class);
+
+        characterName = header.findViewById(R.id.characterNameMenu);
+        characterImage = header.findViewById(R.id.characterImageMenu);
+
+
+        characterViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
+            @Override
+            public void onChanged(List<Character> queryResult) {
+                charactersList = queryResult;
+                characterName.setText(charactersList.get(0).toString());
+                characterImage.setImageDrawable(Drawable.createFromPath("character.jpg"));
+            }
+        });
     }
 
     @Override
