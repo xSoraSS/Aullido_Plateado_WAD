@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.aullidoplateadowad.AullidoPlateado.CharacterViewModel;
 import com.example.aullidoplateadowad.AullidoPlateado.DB.Character;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         characterName = header.findViewById(R.id.characterNameMenu);
         characterImage = header.findViewById(R.id.characterImageMenu);
+
 
 
         characterViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
