@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         View header = LayoutInflater.from(this).inflate(R.layout.nav_header_main, null);
         infoMenuLateral.addHeaderView(header);
-//        characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel .class);
 
+        //Mostrar personaje e imagen en el menu lateral
         characterName = header.findViewById(R.id.characterNameMenu);
         characterImage = header.findViewById(R.id.characterImageMenu);
 
