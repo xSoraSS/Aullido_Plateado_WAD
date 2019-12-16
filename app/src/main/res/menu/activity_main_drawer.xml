@@ -13,6 +13,11 @@
             android:id="@+id/mapFragment"
             android:icon="@drawable/map"
             android:title="@string/map" />
+
+        <item
+            android:id="@+id/inventoryFragment"
+            android:icon="@drawable/inventory"
+            android:title="@string/inventory"/>
     </group>
 
 </menu>
