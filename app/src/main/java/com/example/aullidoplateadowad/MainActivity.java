@@ -10,9 +10,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.aullidoplateadowad.AullidoPlateado.CharacterViewModel;
+import com.example.aullidoplateadowad.AullidoPlateado.PrincipalViewModel;
 import com.example.aullidoplateadowad.AullidoPlateado.DB.Character;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    CharacterViewModel characterViewModel;
+    PrincipalViewModel principalViewModel;
     List<Character> charactersList;
     TextView characterName;
     ImageView characterImage;
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        characterViewModel = ViewModelProviders.of(this).get(CharacterViewModel.class);
+        principalViewModel = ViewModelProviders.of(this).get(PrincipalViewModel.class);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        characterViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
+        principalViewModel.getCharacter().observe(this, new Observer<List<Character>>() {
             @Override
             public void onChanged(List<Character> queryResult) {
                 charactersList = queryResult;
