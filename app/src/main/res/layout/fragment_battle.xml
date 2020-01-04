@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BattleFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/imperial"/>
+
+        <TextView
+            android:id="@+id/damageEnemy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="50dp" />
+
+        <TextView
+            android:id="@+id/victory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/enemyHP"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:textColor="#FF0000"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:layout_marginTop="455dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="520dp">
+        <Button
+            android:id="@+id/attack1"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:background="@drawable/scroll"
+            android:layout_marginLeft="30dp"
+            android:text="Colmillo de Lobo (15-25)"/>
+        <Button
+            android:id="@+id/attack2"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:text="Corte Dimensional (50-60)"
+            android:background="@drawable/scroll"/>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

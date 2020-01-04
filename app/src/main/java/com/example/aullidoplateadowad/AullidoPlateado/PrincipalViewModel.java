@@ -1,8 +1,11 @@
 package com.example.aullidoplateadowad.AullidoPlateado;
 
 import android.app.Application;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -85,5 +88,4 @@ public class PrincipalViewModel extends AndroidViewModel {
     public void establecerItemSeleccionado(Item item){
         itemSeleccionado.setValue(item);
     }
-
-}
+    }

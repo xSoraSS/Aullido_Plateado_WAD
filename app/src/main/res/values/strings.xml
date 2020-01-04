@@ -10,10 +10,13 @@
     <string name="menu_home">Aullido Plateado</string>
     <string name="map">Mapa</string>
     <string name="inventory">Inventario</string>
+    <string name="stats">Estadisticas</string>
+    <string name="config">Configuración</string>
+    <string name="battle">Campo de Batalla</string>
     <string name="inicio">Es una mañana tranquila, como cualquier otra, en Catherria, tu tierra natal.\n
         \nLa brisa golpea levemente las hojas de los arboles, los pajaros cantan al son del silbido de los campesinos que labran sus pequeños huertos a las afueras de Bharbao, la pequeña capital portuaria de Catherria.\n
         \nCaballos galopando, guardias clavando sus lanzas en el  suelo guardando la gran muralla, mercaderes haciendo negocios con los lugareños, niños y niñas jugando y perros ladrando, son algunos de los sonidos que entran por la ventana entreabierta de tu cuarto.\n
-        \nDe repente, alguien abre la puerta de tu cuarto, es tu hermana pequeña, Shira.
+        \nDe repente, alguien abre la puerta de tu cuarto, un encapuchado armado con espada portando el emblema de los asesinos imperiales.
     </string>
 
     <!-- TODO: Remove or change this placeholder text -->

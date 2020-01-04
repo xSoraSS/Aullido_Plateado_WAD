@@ -19,26 +19,39 @@
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.GameFragment"
-        android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_gameFragment_to_battleFragment"
+            app:destination="@id/battleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.mapFragment"
-        android:label="fragment_map"
+        android:label="@string/map"
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.statsFragment"
-        android:label="fragment_stats"
+        android:label="@string/stats"
         tools:layout="@layout/fragment_stats" />
     <fragment
         android:id="@+id/inventoryFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.inventoryFragment"
-        android:label="fragment_inventory"
+        android:label="@string/inventory"
         tools:layout="@layout/fragment_inventory" />
     <fragment
         android:id="@+id/configFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.configFragment"
-        android:label="fragment_config"
+        android:label="@string/config"
         tools:layout="@layout/fragment_config" />
+    <fragment
+        android:id="@+id/battleFragment"
+        android:name="com.example.aullidoplateadowad.BattleFragment"
+        android:label="@string/battle"
+        tools:layout="@layout/fragment_battle" >
+        <action
+            android:id="@+id/action_battleFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
 </navigation>

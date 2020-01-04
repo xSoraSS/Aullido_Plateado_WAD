@@ -2,6 +2,8 @@ package com.example.aullidoplateadowad.AullidoPlateado.Game;
 
 
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,12 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.aullidoplateadowad.AullidoPlateado.DB.Item;
@@ -72,7 +76,7 @@ public class inventoryFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position) {
+        public void onBindViewHolder(@NonNull final ItemViewHolder holder, final int position) {
 
             final Item item = items.get(position);
 
@@ -83,6 +87,19 @@ public class inventoryFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
                     principalViewModel.establecerItemSeleccionado(item);
+                }
+            });
+
+            holder.itemView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+//                        holder.itemImageView.setImageDrawable(Drawable.createFromPath("uchigatana.png"));
+                    }
+                    if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        System.out.println("");
+                    }
+                    return true;
                 }
             });
         }
@@ -99,11 +116,13 @@ public class inventoryFragment extends Fragment {
 
         class ItemViewHolder extends RecyclerView.ViewHolder {
             TextView nombreTextView, descriptionTextView;
+            ImageView itemImageView;
 
             public ItemViewHolder(@NonNull View itemView) {
                 super(itemView);
-                nombreTextView = itemView.findViewById(R.id.itemName);
-                descriptionTextView = itemView.findViewById(R.id.itemDescription);
+                nombreTextView = itemView.findViewById(R.id.item_Name);
+                descriptionTextView = itemView.findViewById(R.id.item_Description);
+                itemImageView = itemView.findViewById(R.id.imagepressable);
             }
         }
     }
