@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.homeFragment, R.id.gameFragment, R.id.configFragment,
-                R.id.inventoryFragment, R.id.mapFragment, R.id.statsFragment, R.id.itemImageFragment)
+                R.id.inventoryFragment, R.id.mapFragment, R.id.itemImageFragment)
                 .setDrawerLayout(drawer)
                 .build();
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -79,13 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 characterImage.setImageDrawable(Drawable.createFromPath("character.jpg"));
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
 
     @Override

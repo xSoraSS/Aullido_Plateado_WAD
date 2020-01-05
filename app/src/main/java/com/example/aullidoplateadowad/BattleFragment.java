@@ -22,10 +22,10 @@ import java.util.Random;
  */
 public class BattleFragment extends Fragment {
 
-    private int characterHP = 300, enemyHP = 250, enemyDP, characterDP;
-    int attMin1 = 15, attMax1 = 25, attMin2 = 50, attMax2 = 60, damageAttk = 0;
+    private int characterHP = 300, enemyHP = 250, enemyDP;
+    int attMin1 = 15, attMax1 = 25, attMin2 = 50, attMax2 = 60, damageAttk, manaCharacter = 20, enemyMana = 20;
     final Random random = new Random();
-    TextView damageEnemyTextView, healthEnemyTextView, victoryTextView;
+    TextView damageEnemyTextView, healthEnemyTextView, victoryTextView, healthCharacterTextView, damageCharacterTextView, manaCharacterTextView;
     Button attack1, attack2;
     boolean victory = false, enemyTurn = false;
 
@@ -41,10 +41,19 @@ public class BattleFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_battle, container, false);
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        //HEALTH && MANA
         healthEnemyTextView = view.findViewById(R.id.enemyHP);
+        healthCharacterTextView = view.findViewById(R.id.characterHP);
+        manaCharacterTextView = view.findViewById(R.id.characterMana);
+        healthEnemyTextView.setText("HP: " + enemyHP);
+        healthCharacterTextView.setText("HP: " + characterHP);
+        manaCharacterTextView.setText("MANA: " + manaCharacter);
+
+        //DAMAGE && ATTACK
         attack1 = view.findViewById(R.id.attack1);
         attack2 = view.findViewById(R.id.attack2);
         damageEnemyTextView = view.findViewById(R.id.damageEnemy);
+        damageCharacterTextView = view.findViewById(R.id.damageCharacter);
         victoryTextView = view.findViewById(R.id.victory);
 
         attack1.setOnClickListener(new View.OnClickListener() {
@@ -54,26 +63,75 @@ public class BattleFragment extends Fragment {
                 enemyHP -= damageAttk;
                 enemyTurn = true;
 
-                updateDamage();
+                update();
+                enemyAttack(enemyTurn);
                 verifyEnemyHP(view);
+                manaCharacter += 10;
             }
         });
 
         attack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                damageAttk = (random.nextInt((attMax2 - attMin2) + 1) + attMin2);
-                enemyHP -= damageAttk;
-                enemyTurn = true;
+                if (manaCharacter >= 40) {
+                    damageAttk = (random.nextInt((attMax2 - attMin2) + 1) + attMin2);
+                    enemyHP -= damageAttk;
+                    enemyTurn = true;
+                    manaCharacter = 20;
 
-                updateDamage();
-                verifyEnemyHP(view);
+                    update();
+                    enemyAttack(enemyTurn);
+                    verifyEnemyHP(view);
+                }else if (manaCharacter < 40){
+                    victoryTextView.setText("MANA INSUFICIENTE (40 NECESARIO)");
+                }
             }
         });
 
         return view;
     }
 
+    //SE CALCULA EL ATAQUE DEL ENEMIGO MEDIANTE UN RANDOM Y SE COMPRUEBA SI ES MAYOR A 40 PARA ESPECIFICAR QUE ATAQUE HA REALIZADO
+    private void enemyAttack(boolean enemyTurn){
+        if (enemyTurn){
+            if (enemyMana < 50){
+                enemyDP = random.nextInt((40 - 10) + 1) + 10;
+            }else if (enemyMana > 50) {
+                enemyDP = random.nextInt((70 - 10) + 1) + 10;
+            }
+
+            if (enemyDP <= 40) {
+                victoryTextView.setText("ASESINO IMPERIAL HA USADO CORTE");
+            }else if (enemyDP > 40) {
+                victoryTextView.setText("ASESINO IMPERIAL HA USADO CORTE OSCURO");
+            }
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                        if (enemyDP <= 40) {
+                            System.out.println("EL ATAQUE ENEMIGO ES MENOR O IGUAL QUE 40: " + enemyDP);
+                            enemyMana += 10;
+                        }else if (enemyDP > 40){
+                            System.out.println("EL ATAQUE ENEMIGO ES MAYOR QUE 40: " + enemyDP);
+                            enemyMana = 20;
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    characterHP -= enemyDP;
+                    damageCharacterTextView.setText("DAÑO RECIBIDO: " + enemyDP);
+                    update();
+                }
+            }, 10);
+        }
+    }
+
+    //COMPRUEBA SI LA SALUD DEL ENEMIGO ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
     private void verifyEnemyHP(final View view){
         if (enemyHP<=0) {
             victory = true;
@@ -97,10 +155,12 @@ public class BattleFragment extends Fragment {
             }
         }
     }
-    private void updateDamage(){
+    private void update(){
         damageEnemyTextView.setText(String.valueOf(damageAttk));
-        healthEnemyTextView.setText(String.valueOf(enemyHP));
-        System.out.println(enemyHP);
+        healthEnemyTextView.setText("HP: " + enemyHP);
+        healthCharacterTextView.setText("HP: " + characterHP);
+        manaCharacterTextView.setText("MANA: " + manaCharacter);
+        victoryTextView.setText("");
     }
 
 }

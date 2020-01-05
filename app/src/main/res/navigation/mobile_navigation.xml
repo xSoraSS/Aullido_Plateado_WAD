@@ -31,11 +31,6 @@
         android:label="@string/map"
         tools:layout="@layout/fragment_map" />
     <fragment
-        android:id="@+id/statsFragment"
-        android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.statsFragment"
-        android:label="@string/stats"
-        tools:layout="@layout/fragment_stats" />
-    <fragment
         android:id="@+id/inventoryFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.inventoryFragment"
         android:label="@string/inventory"
