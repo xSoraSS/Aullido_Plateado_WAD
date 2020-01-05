@@ -47,7 +47,7 @@ public class BattleFragment extends Fragment {
         manaCharacterTextView = view.findViewById(R.id.characterMana);
         healthEnemyTextView.setText("HP: " + enemyHP);
         healthCharacterTextView.setText("HP: " + characterHP);
-        manaCharacterTextView.setText("MANA: " + manaCharacter);
+        manaCharacterTextView.setText("MP: " + manaCharacter);
 
         //DAMAGE && ATTACK
         attack1 = view.findViewById(R.id.attack1);
@@ -56,6 +56,7 @@ public class BattleFragment extends Fragment {
         damageCharacterTextView = view.findViewById(R.id.damageCharacter);
         victoryTextView = view.findViewById(R.id.victory);
 
+        //COLMILLO DE LOBO
         attack1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +71,7 @@ public class BattleFragment extends Fragment {
             }
         });
 
+        //CORTE DIMENSIONAL QUE REQUIERE 40 DE MANA
         attack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +85,7 @@ public class BattleFragment extends Fragment {
                     enemyAttack(enemyTurn);
                     verifyEnemyHP(view);
                 }else if (manaCharacter < 40){
-                    victoryTextView.setText("MANA INSUFICIENTE (40 NECESARIO)");
+                    victoryTextView.setText("MANA INSUFICIENTE (40 MP)");
                 }
             }
         });
@@ -159,7 +161,7 @@ public class BattleFragment extends Fragment {
         damageEnemyTextView.setText(String.valueOf(damageAttk));
         healthEnemyTextView.setText("HP: " + enemyHP);
         healthCharacterTextView.setText("HP: " + characterHP);
-        manaCharacterTextView.setText("MANA: " + manaCharacter);
+        manaCharacterTextView.setText("MP: " + manaCharacter);
         victoryTextView.setText("");
     }
 
