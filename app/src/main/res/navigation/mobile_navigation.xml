@@ -42,7 +42,7 @@
         tools:layout="@layout/fragment_config" />
     <fragment
         android:id="@+id/battleFragment"
-        android:name="com.example.aullidoplateadowad.BattleFragment"
+        android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.BattleFragment"
         android:label="@string/battle"
         tools:layout="@layout/fragment_battle" >
         <action

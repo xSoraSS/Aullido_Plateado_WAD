@@ -1,4 +1,4 @@
-package com.example.aullidoplateadowad;
+package com.example.aullidoplateadowad.AullidoPlateado.Game;
 
 
 import android.content.pm.ActivityInfo;
@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.aullidoplateadowad.R;
 
 import java.util.Random;
 
@@ -115,10 +117,8 @@ public class BattleFragment extends Fragment {
                     try {
                         Thread.sleep(2000);
                         if (enemyDP <= 40) {
-                            System.out.println("EL ATAQUE ENEMIGO ES MENOR O IGUAL QUE 40: " + enemyDP);
                             enemyMana += 10;
                         }else if (enemyDP > 40){
-                            System.out.println("EL ATAQUE ENEMIGO ES MAYOR QUE 40: " + enemyDP);
                             enemyMana = 20;
                         }
                     } catch (InterruptedException e) {
