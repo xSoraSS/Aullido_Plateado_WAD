@@ -20,13 +20,16 @@ public class Item {
     private boolean stockable;
     @ColumnInfo(name = "Cantidad")
     private int quantity;
+    @ColumnInfo(name = "Imagen")
+    private String image;
 
-    public Item(String itemName, String itemType, String description, boolean stockable, int quantity) {
+    public Item(String itemName, String itemType, String description, boolean stockable, int quantity, String image) {
         this.itemName = itemName;
         this.itemType = itemType;
         this.description = description;
         this.stockable = stockable;
         this.quantity = quantity;
+        this.image = image;
     }
 
     public int getId() {
@@ -59,13 +62,17 @@ public class Item {
         this.description = description;
     }
 
-    public boolean isStockable() { return stockable; }
+    public boolean getStockable() { return stockable; }
 
     public void setStockable(boolean stockable) { this.stockable = stockable; }
 
     public int getQuantity() { return quantity; }
 
     public void setQuantity(int quantity) { this.quantity = quantity; }
+
+    public String getImage() {return image;}
+
+    public void setImage(String image) {this.image = image;}
 
     @Override
     public String toString() {

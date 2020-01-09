@@ -24,12 +24,12 @@ import java.util.Random;
  */
 public class BattleFragment extends Fragment {
 
-    private int characterHP = 300, enemyHP = 250, enemyDP;
+    private int characterHP = 270, enemyHP = 250, enemyDP;
     int attMin1 = 15, attMax1 = 25, attMin2 = 50, attMax2 = 60, damageAttk, manaCharacter = 20, enemyMana = 20;
     final Random random = new Random();
     TextView damageEnemyTextView, healthEnemyTextView, victoryTextView, healthCharacterTextView, damageCharacterTextView, manaCharacterTextView;
     Button attack1, attack2;
-    boolean victory = false, enemyTurn = false;
+    boolean victory = false, enemyTurn = false, defeat = false;
 
     public BattleFragment() {
         // Required empty public constructor
@@ -67,8 +67,8 @@ public class BattleFragment extends Fragment {
                 enemyTurn = true;
 
                 update();
-                enemyAttack(enemyTurn);
-                verifyEnemyHP(view);
+                if (characterHP > 0 && enemyHP > 0) {enemyAttack(enemyTurn, view);}
+                verifyHP(view);
                 manaCharacter += 10;
             }
         });
@@ -84,8 +84,8 @@ public class BattleFragment extends Fragment {
                     manaCharacter = 20;
 
                     update();
-                    enemyAttack(enemyTurn);
-                    verifyEnemyHP(view);
+                    if (characterHP > 0 && enemyHP > 0) {enemyAttack(enemyTurn, view);}
+                    verifyHP(view);
                 }else if (manaCharacter < 40){
                     victoryTextView.setText("MANA INSUFICIENTE (40 MP)");
                 }
@@ -96,7 +96,7 @@ public class BattleFragment extends Fragment {
     }
 
     //SE CALCULA EL ATAQUE DEL ENEMIGO MEDIANTE UN RANDOM Y SE COMPRUEBA SI ES MAYOR A 40 PARA ESPECIFICAR QUE ATAQUE HA REALIZADO
-    private void enemyAttack(boolean enemyTurn){
+    private void enemyAttack(boolean enemyTurn, final View view){
         if (enemyTurn){
             if (enemyMana < 50){
                 enemyDP = random.nextInt((40 - 10) + 1) + 10;
@@ -128,20 +128,43 @@ public class BattleFragment extends Fragment {
                     characterHP -= enemyDP;
                     damageCharacterTextView.setText("DAÑO RECIBIDO: " + enemyDP);
                     update();
+                    verifyHP(view);
                 }
             }, 10);
         }
     }
 
     //COMPRUEBA SI LA SALUD DEL ENEMIGO ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
-    private void verifyEnemyHP(final View view){
+    private void verifyHP(final View view){
         if (enemyHP<=0) {
+            //GANAS EL COMBATE
             victory = true;
             if (victory) {
                 System.out.println("FINAL" + enemyHP);
                 victoryTextView.setText("¡HAS DERROTADO AL ASESINO IMPERIAL!");
                 damageEnemyTextView.setText(String.valueOf(0));
-                healthEnemyTextView.setText(String.valueOf(0));
+                healthEnemyTextView.setText("HP: 0");
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                            Navigation.findNavController(view).navigate(R.id.gameFragment);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 10);
+            }
+        }
+        if (characterHP<=0) {
+            //PIERDES EL COMBATE
+            defeat = true;
+            if (defeat) {
+                System.out.println("FINAL" + enemyHP);
+                victoryTextView.setText("¡ASESINO IMPERIAL TE HA VENCIDO!");
+                healthCharacterTextView.setText("HP: 0");
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override

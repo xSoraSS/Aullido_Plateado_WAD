@@ -82,6 +82,7 @@ public class inventoryFragment extends Fragment {
 
             holder.nombreTextView.setText(item.getItemName());
             holder.descriptionTextView.setText(item.getDescription());
+            holder.itemImageView.setImageDrawable(Drawable.createFromPath(item.getImage()));
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -122,7 +123,7 @@ public class inventoryFragment extends Fragment {
                 super(itemView);
                 nombreTextView = itemView.findViewById(R.id.item_Name);
                 descriptionTextView = itemView.findViewById(R.id.item_Description);
-                itemImageView = itemView.findViewById(R.id.imagepressable);
+                itemImageView = itemView.findViewById(R.id.item_Image);
             }
         }
     }

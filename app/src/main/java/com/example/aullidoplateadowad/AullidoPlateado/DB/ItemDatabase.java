@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Item.class}, version = 1, exportSchema = false)
+@Database(entities = {Item.class}, version = 3, exportSchema = false)
 public abstract class ItemDatabase extends RoomDatabase {
 
     private static ItemDatabase INSTANCE;
@@ -36,11 +36,11 @@ public abstract class ItemDatabase extends RoomDatabase {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                itemDao.insertarItem(new Item("Silver Moon", "Katana|Espada", "Katana grabada en runas oscuras con la empuñadura en forma de una cabeza de lobo.", false, 1));
-                itemDao.insertarItem(new Item("Czar", "Mascara|Accesorio", "Mascara con forma de la cabeza de un lobo negro y ojos rojos.", false, 1));
-                itemDao.insertarItem(new Item("Abrigo Lobo Plateado", "Abrigo|Ropa", "Abrigo negro con el emblema del lobo plateado grabado en la espalda.", false,1));
-                itemDao.insertarItem(new Item("Pantalones simples", "Pantalones|Armadura", "Pantalones simples y negrgos con bolsillos para portar diversos objetos.", false, 1));
-                itemDao.insertarItem(new Item("Poción de Curación", "Medicina|Pociones", "Frasco con un liquido rojo para disminuir el dolor y aumentar la regeneración vital.", true, 5));
+                itemDao.insertarItem(new Item("Silver Moon", "Katana|Espada", "Katana grabada en runas oscuras con la empuñadura en forma de una cabeza de lobo.", false, 1, "/home/dam2a/AndroidStudioProjects/Aullido_Plateado_WAD/app/src/main/res/drawable/sword.png"));
+                itemDao.insertarItem(new Item("Czar", "Mascara|Accesorio", "Mascara con forma de la cabeza de un lobo negro y ojos rojos.", false, 1, "head.png"));
+                itemDao.insertarItem(new Item("Abrigo Lobo Plateado", "Abrigo|Ropa", "Abrigo negro con el emblema del lobo plateado grabado en la espalda.", false,1, "body.png"));
+                itemDao.insertarItem(new Item("Pantalones simples", "Pantalones|Armadura", "Pantalones simples y negrgos con bolsillos para portar diversos objetos.", false, 1, "legs.png"));
+                itemDao.insertarItem(new Item("Poción de Curación", "Medicina|Pociones", "Frasco con un liquido rojo para disminuir el dolor y aumentar la regeneración vital.", true, 5, "poti.png"));
             }
         });
     }
