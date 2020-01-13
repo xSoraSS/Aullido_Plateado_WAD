@@ -134,10 +134,10 @@ public class BattleFragment extends Fragment {
         }
     }
 
-    //COMPRUEBA SI LA SALUD DEL ENEMIGO ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
+    //COMPRUEBA SI LA SALUD DEL ENEMIGO O DEL PERSONAJE PRINCIPAL ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
     private void verifyHP(final View view){
+        //GANAS EL COMBATE
         if (enemyHP<=0) {
-            //GANAS EL COMBATE
             victory = true;
             if (victory) {
                 System.out.println("FINAL" + enemyHP);
@@ -157,9 +157,9 @@ public class BattleFragment extends Fragment {
                     }
                 }, 10);
             }
-        }
+            
+        //PIERDES EL COMBATE
         if (characterHP<=0) {
-            //PIERDES EL COMBATE
             defeat = true;
             if (defeat) {
                 System.out.println("FINAL" + enemyHP);
@@ -180,6 +180,7 @@ public class BattleFragment extends Fragment {
             }
         }
     }
+        
     private void update(){
         damageEnemyTextView.setText(String.valueOf(damageAttk));
         healthEnemyTextView.setText("HP: " + enemyHP);
