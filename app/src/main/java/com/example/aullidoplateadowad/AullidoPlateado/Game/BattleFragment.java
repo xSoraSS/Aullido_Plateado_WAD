@@ -97,19 +97,25 @@ public class BattleFragment extends Fragment {
 
     //SE CALCULA EL ATAQUE DEL ENEMIGO MEDIANTE UN RANDOM Y SE COMPRUEBA SI ES MAYOR A 40 PARA ESPECIFICAR QUE ATAQUE HA REALIZADO
     private void enemyAttack(boolean enemyTurn, final View view){
+        //SI EL JUGADOR FINALIZA SU TURNO EL ENEMIGO PODRÁ ATACAR
         if (enemyTurn){
+            //SE COMPROBARÁ SI EL MANA DEL ENEMIGO ES SUPER O INFERIOR A 50 PARA DARLE LA POSIBILIDAD DE LANZAR SU ATAQUE MAS FUERTA
             if (enemyMana < 50){
+                //ENEIMGO USA CORTE
                 enemyDP = random.nextInt((40 - 10) + 1) + 10;
             }else if (enemyMana > 50) {
+                //ENEMIGO USA CORTE OSCURO
                 enemyDP = random.nextInt((70 - 10) + 1) + 10;
             }
 
+            
             if (enemyDP <= 40) {
                 victoryTextView.setText("ASESINO IMPERIAL HA USADO CORTE");
             }else if (enemyDP > 40) {
                 victoryTextView.setText("ASESINO IMPERIAL HA USADO CORTE OSCURO");
             }
 
+            //EL FUNCIONAMIENTO DEL ATAQUE ENEMIGO ES SIMILAR AL DEL JUGADOR, UNA VEZ LANCE SU ATAQUE SE ESPERARÁ DOS SEGUNDOS HASTA PERMITIR ATACAR AL JUGADOR
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -134,7 +140,7 @@ public class BattleFragment extends Fragment {
         }
     }
 
-    //COMPRUEBA SI LA SALUD DEL ENEMIGO O DEL PERSONAJE PRINCIPAL ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
+    //COMPRUEBA SI LA SALUD DEL ENEMIGO O DEL JUGADOR ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
     private void verifyHP(final View view){
         //GANAS EL COMBATE
         if (enemyHP<=0) {
