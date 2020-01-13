@@ -49,4 +49,9 @@
             android:id="@+id/action_battleFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.aullidoplateadowad.SignInFragment"
+        android:label="Inicio de Sesión"
+        tools:layout="@layout/fragment_sign_in" />
 </navigation>
