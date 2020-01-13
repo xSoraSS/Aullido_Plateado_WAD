@@ -108,7 +108,7 @@ public class BattleFragment extends Fragment {
                 enemyDP = random.nextInt((70 - 10) + 1) + 10;
             }
 
-            
+
             if (enemyDP <= 40) {
                 victoryTextView.setText("ASESINO IMPERIAL HA USADO CORTE");
             }else if (enemyDP > 40) {
@@ -141,9 +141,9 @@ public class BattleFragment extends Fragment {
     }
 
     //COMPRUEBA SI LA SALUD DEL ENEMIGO O DEL JUGADOR ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
-    private void verifyHP(final View view){
+    private void verifyHP(final View view) {
         //GANAS EL COMBATE
-        if (enemyHP<=0) {
+        if (enemyHP <= 0) {
             victory = true;
             if (victory) {
                 System.out.println("FINAL" + enemyHP);
@@ -163,30 +163,31 @@ public class BattleFragment extends Fragment {
                     }
                 }, 10);
             }
-            
-        //PIERDES EL COMBATE
-        if (characterHP<=0) {
-            defeat = true;
-            if (defeat) {
-                System.out.println("FINAL" + enemyHP);
-                victoryTextView.setText("¡ASESINO IMPERIAL TE HA VENCIDO!");
-                healthCharacterTextView.setText("HP: 0");
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(2000);
-                            Navigation.findNavController(view).navigate(R.id.gameFragment);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+
+            //PIERDES EL COMBATE
+            if (characterHP <= 0) {
+                defeat = true;
+                if (defeat) {
+                    System.out.println("FINAL" + enemyHP);
+                    victoryTextView.setText("¡ASESINO IMPERIAL TE HA VENCIDO!");
+                    healthCharacterTextView.setText("HP: 0");
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(2000);
+                                Navigation.findNavController(view).navigate(R.id.gameFragment);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                }, 10);
+                    }, 10);
+                }
             }
         }
     }
-        
+
     private void update(){
         damageEnemyTextView.setText(String.valueOf(damageAttk));
         healthEnemyTextView.setText("HP: " + enemyHP);
@@ -194,5 +195,4 @@ public class BattleFragment extends Fragment {
         manaCharacterTextView.setText("MP: " + manaCharacter);
         victoryTextView.setText("");
     }
-
 }
