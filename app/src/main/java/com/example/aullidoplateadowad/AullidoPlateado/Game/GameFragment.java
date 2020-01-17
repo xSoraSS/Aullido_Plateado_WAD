@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aullidoplateadowad.AullidoPlateado.PrincipalViewModel;
 import com.example.aullidoplateadowad.AullidoPlateado.DB.Character;
@@ -36,6 +37,8 @@ public class GameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_game, container,false);
+        Toast.makeText(getActivity(), "Recuerda que puedes activar la música en la configuración!!", Toast.LENGTH_LONG).show();
+
         startBattle = view.findViewById(R.id.combatir);
 
         startBattle.setOnClickListener(new View.OnClickListener() {
