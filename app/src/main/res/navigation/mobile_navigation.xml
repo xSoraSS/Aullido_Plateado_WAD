@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.mapFragment"
+        android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.MapFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_map" />
     <fragment

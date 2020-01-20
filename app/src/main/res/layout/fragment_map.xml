@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
-    tools:context=".AullidoPlateado.Game.mapFragment">
+    tools:context=".AullidoPlateado.Game.MapFragment">
 
 
     <com.github.chrisbanes.photoview.PhotoView

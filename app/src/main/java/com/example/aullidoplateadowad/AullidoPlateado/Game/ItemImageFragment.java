@@ -11,8 +11,8 @@ import com.example.aullidoplateadowad.R;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class item_image_fragment extends Fragment {
-    public item_image_fragment() {}
+public class ItemImageFragment extends Fragment {
+    public ItemImageFragment() {}
 
     @Nullable
     @Override

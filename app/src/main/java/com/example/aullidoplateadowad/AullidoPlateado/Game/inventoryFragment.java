@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.aullidoplateadowad.AullidoPlateado.DB.Item;
 import com.example.aullidoplateadowad.AullidoPlateado.PrincipalViewModel;
 import com.example.aullidoplateadowad.R;
@@ -82,7 +83,7 @@ public class inventoryFragment extends Fragment {
 
             holder.nombreTextView.setText(item.getItemName());
             holder.descriptionTextView.setText(item.getDescription());
-            holder.itemImageView.setImageDrawable(Drawable.createFromPath(item.getImage()));
+            Glide.with(requireContext()).load(R.drawable.map).into(holder.itemImageView);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

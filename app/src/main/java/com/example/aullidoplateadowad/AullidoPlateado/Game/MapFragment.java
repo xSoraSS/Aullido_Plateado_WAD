@@ -17,12 +17,12 @@ import com.github.chrisbanes.photoview.PhotoView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class mapFragment extends Fragment {
+public class MapFragment extends Fragment {
 
     PhotoView photoView;
 
 
-    public mapFragment() {
+    public MapFragment() {
         // Required empty public constructor
     }
 

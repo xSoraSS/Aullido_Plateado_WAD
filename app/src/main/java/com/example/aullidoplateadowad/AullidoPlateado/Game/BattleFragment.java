@@ -4,6 +4,8 @@ package com.example.aullidoplateadowad.AullidoPlateado.Game;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -31,16 +33,18 @@ public class BattleFragment extends Fragment {
     Button attack1, attack2;
     boolean victory = false, enemyTurn = false, defeat = false;
 
-    public BattleFragment() {
-        // Required empty public constructor
-    }
+    public BattleFragment() {}
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_battle, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return  inflater.inflate(R.layout.fragment_battle, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //HEALTH && MANA
@@ -92,7 +96,6 @@ public class BattleFragment extends Fragment {
             }
         });
 
-        return view;
     }
 
     //SE CALCULA EL ATAQUE DEL ENEMIGO MEDIANTE UN RANDOM Y SE COMPRUEBA SI ES MAYOR A 40 PARA ESPECIFICAR QUE ATAQUE HA REALIZADO
