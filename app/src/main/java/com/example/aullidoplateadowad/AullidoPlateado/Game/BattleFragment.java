@@ -63,19 +63,22 @@ public class BattleFragment extends Fragment {
         victoryTextView = view.findViewById(R.id.victory);
 
         //COLMILLO DE LOBO
-        attack1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                damageAttk = (random.nextInt((attMax1 - attMin1) + 1) + attMin1);
-                enemyHP -= damageAttk;
-                enemyTurn = true;
+            attack1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    damageAttk = (random.nextInt((attMax1 - attMin1) + 1) + attMin1);
+                    enemyHP -= damageAttk;
+                    enemyTurn = true;
+                    attack1.setEnabled(false);
 
-                update();
-                if (characterHP > 0 && enemyHP > 0) {enemyAttack(enemyTurn, view);}
-                verifyHP(view);
-                manaCharacter += 10;
-            }
-        });
+                    update();
+                    if (characterHP > 0 && enemyHP > 0) {
+                        enemyAttack(enemyTurn, view);
+                    }
+                    verifyHP(view);
+                    manaCharacter += 10;
+                }
+            });
 
         //CORTE DIMENSIONAL QUE REQUIERE 40 DE MANA
         attack2.setOnClickListener(new View.OnClickListener() {
@@ -141,7 +144,10 @@ public class BattleFragment extends Fragment {
                 }
             }, 10);
         }
-    }
+
+        enemyTurn = false;
+        if (!enemyTurn){attack1.setEnabled(true);}
+        }
 
     //COMPRUEBA SI LA SALUD DEL ENEMIGO O DEL JUGADOR ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
     private void verifyHP(final View view) {

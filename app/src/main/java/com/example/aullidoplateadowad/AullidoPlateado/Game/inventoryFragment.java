@@ -83,7 +83,7 @@ public class inventoryFragment extends Fragment {
 
             holder.nombreTextView.setText(item.getItemName());
             holder.descriptionTextView.setText(item.getDescription());
-            Glide.with(requireContext()).load(R.drawable.map).into(holder.itemImageView);
+            Glide.with(requireContext()).load(R.drawable.uchigatana).into(holder.itemImageView);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
