@@ -88,9 +88,7 @@ public class inventoryFragment extends Fragment {
                 System.out.println("HAY:   " + item.getImage());
                 Glide.with(requireContext()).load(item.getImage()).into(holder.itemImageView);
             }else{
-                // make sure Glide doesn't load anything into this view until told otherwise
                 Glide.with(requireContext()).clear(holder.itemImageView);
-                // remove the placeholder (optional); read comments below
                 holder.itemImageView.setImageDrawable(null);
             }
 
