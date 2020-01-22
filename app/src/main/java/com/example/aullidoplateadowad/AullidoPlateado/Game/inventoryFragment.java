@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.aullidoplateadowad.AullidoPlateado.DB.Item;
 import com.example.aullidoplateadowad.AullidoPlateado.PrincipalViewModel;
 import com.example.aullidoplateadowad.R;
@@ -83,7 +84,15 @@ public class inventoryFragment extends Fragment {
 
             holder.nombreTextView.setText(item.getItemName());
             holder.descriptionTextView.setText(item.getDescription());
-            Glide.with(requireContext()).load(R.drawable.map).into(holder.itemImageView);
+            if (holder.itemImageView.getDrawable() == null) {
+                System.out.println("HAY:   " + item.getImage());
+                Glide.with(requireContext()).load(item.getImage()).into(holder.itemImageView);
+            }else{
+                // make sure Glide doesn't load anything into this view until told otherwise
+                Glide.with(requireContext()).clear(holder.itemImageView);
+                // remove the placeholder (optional); read comments below
+                holder.itemImageView.setImageDrawable(null);
+            }
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
