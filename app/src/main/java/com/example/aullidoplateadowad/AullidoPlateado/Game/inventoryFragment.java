@@ -85,14 +85,13 @@ public class inventoryFragment extends Fragment {
             holder.descriptionTextView.setText(item.getDescription());
 
             Glide.with(requireContext()).load(item.getImage()).into(holder.itemImageView);
-
             holder.itemView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                         Glide.with(requireContext()).load(item.getImage()).into(holder.itemImageViewDetail);
                         holder.quantityTextView.setText(item.getQuantity() + " " + item.getItemName());
-                    }else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    }else if (motionEvent.getAction() == MotionEvent.ACTION_UP || motionEvent.getAction() == MotionEvent.ACTION_CANCEL) {
                         Glide.with(requireContext()).clear(holder.itemImageViewDetail);
                         holder.quantityTextView.setText("");
                     }
