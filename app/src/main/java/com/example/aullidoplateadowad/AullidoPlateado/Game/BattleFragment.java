@@ -2,6 +2,7 @@ package com.example.aullidoplateadowad.AullidoPlateado.Game;
 
 
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.example.aullidoplateadowad.R;
 
 import java.util.Random;
 
+import me.toptas.fancyshowcase.FancyShowCaseQueue;
 import me.toptas.fancyshowcase.FancyShowCaseView;
 
 
@@ -49,6 +51,36 @@ public class BattleFragment extends Fragment {
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        final FancyShowCaseView fancyShowCaseWelcome = new FancyShowCaseView.Builder(getActivity())
+                .title("Colmillo de Lobo es tu ataque principal.")
+                .focusBorderColor(Color.BLUE)
+                .focusBorderSize(5)
+                .focusOn(attack1)
+                .build();
+
+        final FancyShowCaseView fancyShowCaseView1 = new FancyShowCaseView.Builder(getActivity())
+                .title("Corte Dimensional es tu ataque especial, el cual necesitará mana.")
+                .focusBorderColor(Color.BLUE)
+                .focusBorderSize(5)
+                .focusOn(attack2)
+                .build();
+
+        final FancyShowCaseView fancyShowCaseExit = new FancyShowCaseView.Builder(getActivity())
+                .focusOn(attack1)
+                .build();
+
+        final FancyShowCaseView fancyShowCaseExit2 = new FancyShowCaseView.Builder(getActivity())
+                .focusOn(attack2)
+                .build();
+
+
+        FancyShowCaseQueue mQueue = new FancyShowCaseQueue()
+                .add(fancyShowCaseWelcome)
+                .add(fancyShowCaseView1)
+                .add(fancyShowCaseExit)
+                .add(fancyShowCaseExit2);
+        mQueue.show();
+
         //HEALTH && MANA
         healthEnemyTextView = view.findViewById(R.id.enemyHP);
         healthCharacterTextView = view.findViewById(R.id.characterHP);
@@ -68,13 +100,6 @@ public class BattleFragment extends Fragment {
             attack1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    new FancyShowCaseView.Builder(getActivity())
-                            .focusOn(view)
-                            .title("Focus on View")
-                            .focusOn(v)
-                            .focusCircleRadiusFactor(2.0)
-                            .build()
-                            .show();
                     damageAttk = (random.nextInt((attMax1 - attMin1) + 1) + attMin1);
                     enemyHP -= damageAttk;
                     enemyTurn = true;
