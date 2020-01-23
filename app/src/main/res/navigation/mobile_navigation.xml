@@ -33,8 +33,7 @@
     <fragment
         android:id="@+id/inventoryFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.inventoryFragment"
-        android:label="@string/inventory"
-        tools:layout="@layout/fragment_inventory" />
+        android:label="@string/inventory"/>
     <fragment
         android:id="@+id/configFragment"
         android:name="com.example.aullidoplateadowad.AullidoPlateado.Game.configFragment"
@@ -49,9 +48,4 @@
             android:id="@+id/action_battleFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.example.aullidoplateadowad.SignInFragment"
-        android:label="Inicio de Sesión"
-        tools:layout="@layout/fragment_sign_in" />
 </navigation>

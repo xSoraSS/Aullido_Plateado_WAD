@@ -20,6 +20,8 @@ import com.example.aullidoplateadowad.R;
 
 import java.util.Random;
 
+import me.toptas.fancyshowcase.FancyShowCaseView;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,6 +68,13 @@ public class BattleFragment extends Fragment {
             attack1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    new FancyShowCaseView.Builder(getActivity())
+                            .focusOn(view)
+                            .title("Focus on View")
+                            .focusOn(v)
+                            .focusCircleRadiusFactor(2.0)
+                            .build()
+                            .show();
                     damageAttk = (random.nextInt((attMax1 - attMin1) + 1) + attMin1);
                     enemyHP -= damageAttk;
                     enemyTurn = true;

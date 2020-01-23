@@ -85,7 +85,8 @@ public class PrincipalViewModel extends AndroidViewModel {
         });
     }
 
-    public void establecerItemSeleccionado(Item item){
-        itemSeleccionado.setValue(item);
+    public void toggleItemSeleccionado(final Item item){
+        // si estaba seleccionado lo desselecciono sino lo selecciono
+            itemSeleccionado.setValue(item);
     }
-    }
+}

@@ -23,6 +23,8 @@ public class Item {
     @ColumnInfo(name = "Imagen")
     private String image;
 
+//    private boolean visible;
+
     public Item(String itemName, String itemType, String description, boolean stockable, int quantity, String image) {
         this.itemName = itemName;
         this.itemType = itemType;

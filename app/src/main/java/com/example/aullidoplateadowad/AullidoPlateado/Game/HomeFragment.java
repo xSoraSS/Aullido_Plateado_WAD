@@ -4,15 +4,21 @@ package com.example.aullidoplateadowad.AullidoPlateado.Game;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.aullidoplateadowad.R;
+
+import me.toptas.fancyshowcase.FancyShowCaseView;
 
 
 /**
@@ -32,16 +38,20 @@ public class HomeFragment extends Fragment {
         //Bloquear orientación de pantalla
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        final View view = inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         startHistory = view.findViewById(R.id.startHist);
 
         startHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.gameFragment);
+                Navigation.findNavController(v).navigate(R.id.gameFragment);
             }
         });
-
-        return view;
     }
 }
