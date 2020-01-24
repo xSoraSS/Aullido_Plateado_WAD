@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.aullidoplateadowad.R;
 
+import es.dmoral.toasty.Toasty;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -37,7 +39,8 @@ public class GameFragment extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Toast.makeText(getActivity(), "Recuerda que puedes activar la música en la configuración!!", Toast.LENGTH_LONG).show();
+        Toasty.info(getActivity(), "Recuerda que puedes activar la música en la configuración!!", Toast.LENGTH_LONG, true).show();
+
 
         startBattle = view.findViewById(R.id.combatir);
 

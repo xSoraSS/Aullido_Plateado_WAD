@@ -98,27 +98,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void lanzaShowCaseView(View view){
 
-        View botonShowCase    = findViewById(R.id.attack1);
+        View ataquePrincipal    = findViewById(R.id.attack1);
+        View ataqueSecundario   = findViewById(R.id.attack2);
+
 
         Animation animation = new AlphaAnimation(0.0f,1.0f);
         animation.setDuration(250);
 
         final FancyShowCaseView fancyShowCaseWelcome = new FancyShowCaseView.Builder(this)
-                .title("Con esta guía tendrás una explicación rápida de los diferentes botones de la aplicación.")
+                .title("Bienvenido al combate a continuación vamos a echar un vistazo.")
                 .titleStyle(R.style.showcaseText, Gravity.CENTER)
+                .enableAutoTextPosition()
                 .backgroundColor(R.color.showCaseBackground)
-                .focusOn(botonShowCase)
+                .build();
+
+
+        final FancyShowCaseView fancyShowCaseAtaque = new FancyShowCaseView.Builder(this)
+                .title("Con este botón de aquí podrás lanzar tu ataque principal.")
+                .titleStyle(R.style.showcaseText, Gravity.CENTER)
+                .enableAutoTextPosition()
+                .backgroundColor(R.color.showCaseBackground)
+                .focusOn(ataquePrincipal)
                 .build();
 
         final FancyShowCaseView fancyShowCaseExit = new FancyShowCaseView.Builder(this)
-                .title("Con este ejercicio has aprendido a utilizar la librería FancyShowCaseView!")
+                .title("Con este botón de aquí podrás lanzar tu ataque secundario el cual necesita 40 puntos de mana.")
                 .titleStyle(R.style.showcaseText, Gravity.CENTER)
+                .enableAutoTextPosition()
                 .backgroundColor(R.color.showCaseBackground)
-                .focusOn(botonShowCase)
+                .focusOn(ataqueSecundario)
                 .build();
 
         FancyShowCaseQueue mQueue = new FancyShowCaseQueue()
                 .add(fancyShowCaseWelcome)
+                .add(fancyShowCaseAtaque)
                 .add(fancyShowCaseExit);
         mQueue.show();
 
