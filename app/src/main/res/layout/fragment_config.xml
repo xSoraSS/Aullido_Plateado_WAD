@@ -31,10 +31,37 @@
             android:background="@drawable/scroll"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintHorizontal_bias="0.586"
             app:layout_constraintStart_toEndOf="@+id/music"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.078" />
+            app:layout_constraintVertical_bias="0.079" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:background="@drawable/scroll"
+            android:text="Save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.517"
+            app:layout_constraintStart_toEndOf="@+id/save"
+            app:layout_constraintTop_toBottomOf="@+id/musicButton"
+            app:layout_constraintVertical_bias="0.187" />
+
+        <TextView
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardado: "
+            android:textColor="@color/textColor"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/music"
+            app:layout_constraintVertical_bias="0.185" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

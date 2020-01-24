@@ -6,12 +6,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import es.dmoral.toasty.Toasty;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.aullidoplateadowad.R;
@@ -27,6 +30,7 @@ import java.io.IOException;
 public class configFragment extends Fragment {
 
     ToggleButton musicButton;
+    Button saveButton;
     TextView musicTextView;
 
     public configFragment() {
@@ -43,6 +47,7 @@ public class configFragment extends Fragment {
 
         musicButton = view.findViewById(R.id.musicButton);
         musicTextView = view.findViewById(R.id.music);
+        saveButton = view.findViewById(R.id.saveButton);
 
         musicButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -56,6 +61,13 @@ public class configFragment extends Fragment {
                     musicMediaPlayer.pause();
                     musicMediaPlayer.seekTo(0);
                 }
+            }
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toasty.success(getActivity(), "Partida guardada con exito!", Toast.LENGTH_SHORT, true).show();
             }
         });
 

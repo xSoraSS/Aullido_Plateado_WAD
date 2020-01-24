@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AullidoPlateado.Game.BattleFragment"
-    t="lanzaShowCaseView"
-    tools:ignore="OnClick">
+    tools:context=".AullidoPlateado.Game.BattleFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -111,11 +109,15 @@
                 android:textColor="#0000FF"
                 android:text="HP: 27"
                 android:textSize="30dp" />
+
             <Button
-                android:layout_marginLeft="50sp"
                 android:layout_width="80px"
                 android:layout_height="80px"
-                android:background="@drawable/interrogation"/>
+                android:layout_marginLeft="50sp"
+                android:layout_marginBottom="20sp"
+                android:background="@drawable/interrogation"
+                android:onClick="lanzaShowCaseView"
+                tools:ignore="OnClick" />
         </LinearLayout>
 
         <LinearLayout

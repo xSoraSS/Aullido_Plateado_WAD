@@ -19,11 +19,13 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.aullidoplateadowad.R;
 
 import java.util.Random;
 
+import es.dmoral.toasty.Toasty;
 import me.toptas.fancyshowcase.FancyShowCaseQueue;
 import me.toptas.fancyshowcase.FancyShowCaseView;
 
@@ -46,35 +48,7 @@ public class BattleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-//        new FancyShowCaseView.Builder(getActivity())
-//                .title("Colmillo de Lobo es tu ataque principal.")
-//                .focusBorderColor(Color.BLUE)
-//                .focusBorderSize(5)
-//                .focusOn(attack1)
-//                .build();
-//
-//        final FancyShowCaseView fancyShowCaseView1 = new FancyShowCaseView.Builder(getActivity())
-//                .title("Corte Dimensional es tu ataque especial, el cual necesitará mana.")
-//                .focusBorderColor(Color.BLUE)
-//                .focusBorderSize(5)
-//                .focusOn(attack2)
-//                .build();
-//
-//        final FancyShowCaseView fancyShowCaseExit = new FancyShowCaseView.Builder(getActivity())
-//                .focusOn(attack1)
-//                .build();
-//
-//        final FancyShowCaseView fancyShowCaseExit2 = new FancyShowCaseView.Builder(getActivity())
-//                .focusOn(attack2)
-//                .build();
-//
-//
-//        FancyShowCaseQueue mQueue = new FancyShowCaseQueue()
-//                .add(fancyShowCaseWelcome)
-//                .add(fancyShowCaseView1)
-//                .add(fancyShowCaseExit)
-//                .add(fancyShowCaseExit2);
-//        mQueue.show();
+        Toasty.info(getActivity(), "Haz clic en el interrogante para aprender como combatir o lanzate a ciegas!", Toast.LENGTH_LONG, true).show();
 
         return  inflater.inflate(R.layout.fragment_battle, container, false);
     }
@@ -117,9 +91,28 @@ public class BattleFragment extends Fragment {
                 manaCharacter += 10;
             }
         });
+
+        //CORTE DIMENSIONAL QUE REQUIERE 40 DE MANA
+        attack2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (manaCharacter >= 40) {
+                    damageAttk = (random.nextInt((attMax2 - attMin2) + 1) + attMin2);
+                    enemyHP -= damageAttk;
+                    enemyTurn = true;
+                    manaCharacter = 20;
+
+                    update();
+                    if (characterHP > 0 && enemyHP > 0) {enemyAttack(enemyTurn, view);}
+                    verifyHP(view);
+                }else if (manaCharacter < 40){
+                    victoryTextView.setText("MANA INSUFICIENTE (40 MP)");
+                }
+            }
+        });
     }
 
-        //SE CALCULA EL ATAQUE DEL ENEMIGO MEDIANTE UN RANDOM Y SE COMPRUEBA SI ES MAYOR A 40 PARA ESPECIFICAR QUE ATAQUE HA REALIZADO
+    //SE CALCULA EL ATAQUE DEL ENEMIGO MEDIANTE UN RANDOM Y SE COMPRUEBA SI ES MAYOR A 40 PARA ESPECIFICAR QUE ATAQUE HA REALIZADO
     private void enemyAttack(boolean enemyTurn, final View view){
         //SI EL JUGADOR FINALIZA SU TURNO EL ENEMIGO PODRÁ ATACAR
         if (enemyTurn){
@@ -165,7 +158,7 @@ public class BattleFragment extends Fragment {
 
         enemyTurn = false;
         if (!enemyTurn){attack1.setEnabled(true);}
-        }
+    }
 
     //COMPRUEBA SI LA SALUD DEL ENEMIGO O DEL JUGADOR ES 0, ESPERA 2 SEGUNDOS PARA MOSTRAR EL MENSAJE DE VICTORIA Y VUELVE A LA HISTORIA.
     private void verifyHP(final View view) {

@@ -20,6 +20,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import me.toptas.fancyshowcase.FancyShowCaseQueue;
+import me.toptas.fancyshowcase.FancyShowCaseView;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -32,8 +34,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import me.toptas.fancyshowcase.FancyShowCaseQueue;
-import me.toptas.fancyshowcase.FancyShowCaseView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 .title("Con este botón de aquí podrás lanzar tu ataque principal.")
                 .titleStyle(R.style.showcaseText, Gravity.CENTER)
                 .enableAutoTextPosition()
+                .focusCircleRadiusFactor(1.5)
                 .backgroundColor(R.color.showCaseBackground)
                 .focusOn(ataquePrincipal)
                 .build();
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 .title("Con este botón de aquí podrás lanzar tu ataque secundario el cual necesita 40 puntos de mana.")
                 .titleStyle(R.style.showcaseText, Gravity.CENTER)
                 .enableAutoTextPosition()
+                .focusCircleRadiusFactor(1.5)
                 .backgroundColor(R.color.showCaseBackground)
                 .focusOn(ataqueSecundario)
                 .build();
