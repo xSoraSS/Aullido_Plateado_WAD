@@ -1,6 +1,7 @@
 package com.example.aullidoplateadowad.AullidoPlateado.Game;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,15 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.aullidoplateadowad.AullidoPlateado.PrincipalViewModel;
-import com.example.aullidoplateadowad.AullidoPlateado.DB.Character;
 import com.example.aullidoplateadowad.R;
-
-import java.util.List;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +29,7 @@ public class GameFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR);
         return inflater.inflate(R.layout.fragment_game, container,false);
     }
 

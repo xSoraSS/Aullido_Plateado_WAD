@@ -1,5 +1,6 @@
 package com.example.aullidoplateadowad;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -20,13 +21,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import me.toptas.fancyshowcase.FancyShowCaseQueue;
+import me.toptas.fancyshowcase.FancyShowCaseView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -88,4 +95,33 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public void lanzaShowCaseView(View view){
+
+        View botonShowCase    = findViewById(R.id.attack1);
+
+        Animation animation = new AlphaAnimation(0.0f,1.0f);
+        animation.setDuration(250);
+
+        final FancyShowCaseView fancyShowCaseWelcome = new FancyShowCaseView.Builder(this)
+                .title("Con esta guía tendrás una explicación rápida de los diferentes botones de la aplicación.")
+                .titleStyle(R.style.showcaseText, Gravity.CENTER)
+                .backgroundColor(R.color.showCaseBackground)
+                .focusOn(botonShowCase)
+                .build();
+
+        final FancyShowCaseView fancyShowCaseExit = new FancyShowCaseView.Builder(this)
+                .title("Con este ejercicio has aprendido a utilizar la librería FancyShowCaseView!")
+                .titleStyle(R.style.showcaseText, Gravity.CENTER)
+                .backgroundColor(R.color.showCaseBackground)
+                .focusOn(botonShowCase)
+                .build();
+
+        FancyShowCaseQueue mQueue = new FancyShowCaseQueue()
+                .add(fancyShowCaseWelcome)
+                .add(fancyShowCaseExit);
+        mQueue.show();
+
+    }
+
 }
