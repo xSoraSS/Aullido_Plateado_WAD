@@ -35,7 +35,7 @@ import me.toptas.fancyshowcase.FancyShowCaseView;
  */
 public class BattleFragment extends Fragment {
 
-    private int characterHP = 270, enemyHP = 250, enemyDP;
+    private int characterHP = 300, enemyHP = 300, enemyDP;
     int attMin1 = 15, attMax1 = 25, attMin2 = 50, attMax2 = 60, damageAttk, manaCharacter = 20, enemyMana = 20;
     final Random random = new Random();
     TextView damageEnemyTextView, healthEnemyTextView, victoryTextView, healthCharacterTextView, damageCharacterTextView, manaCharacterTextView;
